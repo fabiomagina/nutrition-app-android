@@ -1,5 +1,6 @@
 package com.fiap.nutritionapp
 
+import RefeicaoViewModel
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -10,7 +11,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.fiap.nutritionapp.components.MenuPrincipal
 import com.fiap.nutritionapp.telas.CadastrarAlimentoScreen
 import com.fiap.nutritionapp.telas.LoginScreen
 import com.fiap.nutritionapp.telas.MenuScreen
@@ -32,7 +32,7 @@ class MainActivity : ComponentActivity() {
                     NavHost(navController = navController, startDestination = "login" ) {
                         composable(route = "login") { LoginScreen(navController)}
                         composable(route="menu") { MenuScreen(navController)}
-                        composable(route ="refeicoes") { RefeicoesScreen(navController)}
+                        composable(route ="refeicoes") { RefeicoesScreen(RefeicaoViewModel(), navController)}
                         composable(route = "refeicao") { RefeicaoScreen(navController) }
                         composable(route = "cadastrar") { CadastrarAlimentoScreen(navController)}
 

@@ -1,5 +1,4 @@
 package com.fiap.nutritionapp.model
-
 import com.google.gson.annotations.SerializedName
 
 data class ItemRefeicao(
@@ -15,3 +14,4 @@ data class Refeicao(
     @SerializedName("disponivel") var disponivel: Boolean = true,
     @SerializedName("alimentos") var alimentos: List<ItemRefeicao>,
 )
+

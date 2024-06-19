@@ -1,20 +1,17 @@
-package br.com.fiap.consultacep.service
 
+//    private val URL = "https://nutrition-app-git-main-fabiomaginas-projects.vercel.app"
+import br.com.fiap.consultacep.service.RefeicaoService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class RetrofitFactory {
+object RetrofitInstance {
+    private const val BASE_URL = "https://nutrition-app-git-main-fabiomaginas-projects.vercel.app"
 
-    private val URL = "https://nutrition-app-git-main-fabiomaginas-projects.vercel.app"
-
-    private val retrofitFactory = Retrofit
-        .Builder()
-        .baseUrl(URL)
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
-
-    fun getRefeicaoService(): RefeicaoService {
-        return retrofitFactory.create(RefeicaoService::class.java)
+    val api: RefeicaoService by lazy {
+        Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(RefeicaoService::class.java)
     }
-
 }
